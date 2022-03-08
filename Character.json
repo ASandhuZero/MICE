@@ -1,0 +1,30 @@
+[
+    {
+        "title" : "Jackson and the cake-hating king",
+        "type" : "character",
+        "start" : "Jackson works within a generic kingdom bakery as a baker of high renown. However, the king gates cakes, which breaks Jackson's heart. As a cake lover and a baker, Jackson wants to convince the world to love cakes. ",
+        "middle" : "So, the fool of a mad man goes to the king with a cake of extraordinary make. The king hates it.",
+        "end" : "Jackson weeps for this failure. Yet, in his tear-filled hysteria, Jackson learns to accept that others might not like cake, but that doesn't mean he has to stop baking cakes."
+    },
+    {
+        "title" : "Jackson and ovenless realm",
+        "type" : "milieu",
+        "start" : "Jackson, one day, finds himself within the wizard's court. He eats a well-made cake, watching the apprentice wizards perform their magics. One of the stray magicked spells hits Jackson, and the spell teleports him to a mirror world with no ovens.",
+        "middle" : "Aghast, Jackson searches far and wide, trying to escape from such a mad world. ",
+        "end" : "Yet, he can't find an oven anywhere. So, Jackson, refusing to give up, tries to make his own oven. But he fails and accepts his new, ovenless existence."
+    },
+    {
+        "title" : "Jackson and the Cooking Glass",
+        "type" : "event",
+        "start" : "One day, a glass falls upon the mirrored realm. It has an inner heat that burns up cities and towns.",
+        "middle" : "Shocked, Jackson tries and runs away but notices how it cooks his cake batter.",
+        "end" : "Jackson discovers he can focus the Burning Glass's power on baking cakes. The burning glass loses some heat, and Jackson saves the mirrored realm through cake baking."
+    },
+    {
+        "title" : "Jackson and the Cake-eating Fiend",
+        "type" : "inquiry",
+        "start" : "Still in the mirrored realm, Jackson discovers someone took a piece of his cake.",
+        "middle" : "Confused, Jackson asks the guards if they know who ate his cake.",
+        "end" : "Telling him, the guards explain how the king's son took a bite. Glad to know, Jackson bakes a cake for the king's son using the power of the burning glass. And thus, Jackson, still in a realm of mirrors, finally can have his cake and eat it, too."
+    }
+]

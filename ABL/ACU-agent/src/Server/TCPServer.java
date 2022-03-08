@@ -20,7 +20,9 @@ import game.GameEngine;
  * @author www.codejava.net
  * ADD more docs if need be?
  */
-
+// We want to have a story guided by MICE. 
+// Let's first start by opening up a character story!
+// We need story data first.
 
 public class TCPServer {
 	private long data = -1;
@@ -33,7 +35,6 @@ public class TCPServer {
 		agent.startBehaving();
 	}
 	
-	// TODO: We are transforming multiple times, probably too much.
     public static void main(String[] args) {
     	server = new TCPServer();
     	server.startAgent();
