@@ -15,7 +15,7 @@ import abl.sensors.*;
 public class MICEAgent_Preconditions {
    static public boolean precondition0(int __$behaviorID, Object[] __$args, Map __$variableTable, final BehavingEntity __$thisEntity) {
       switch (__$behaviorID) {
-         case 2: {
+         case 8: {
             // testBehavior_1
             long test;
                List wmeList0;

@@ -41,6 +41,23 @@ behaving_entity MICEAgent {
      * constants game.Constants;   
 	 */ 
 	int botSpeed = 2;	
+	sequential behavior MICERoot() {
+		subgoal startEventThread();
+		subgoal MICERoot();
+		subgoal endEventThread();
+	}
+	sequential behavior startEventThread() {
+	    mental_act { 
+	    	System.out.println("STARTING EVENT.");
+	    }
+	}
+	sequential behavior endEventThread() {
+	    mental_act { 
+	    	System.out.println("ENDING EVENT.");
+	    }
+	}
+	
+	
 	sequential behavior milieu() {
 		long finish;
 	    mental_act { 
@@ -111,5 +128,6 @@ behaving_entity MICEAgent {
 			System.out.println("Starting bot Agent");
     	}
     	with (priority 2) subgoal event();
+    	with (priority 2) subgoal MICERoot();
     }
 }

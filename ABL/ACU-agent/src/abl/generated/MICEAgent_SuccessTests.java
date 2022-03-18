@@ -15,7 +15,7 @@ import abl.sensors.*;
 public class MICEAgent_SuccessTests {
    static public boolean successTest0(int __$stepID, final Object[] __$behaviorFrame, final BehavingEntity __$thisEntity) {
       switch (__$stepID) {
-         case 2: {
+         case 10: {
             // Wait_1Step2
                if (
                   System.currentTimeMillis() > ((__ValueTypes.LongVar)__$behaviorFrame[1]).l

@@ -303,11 +303,17 @@ public class MICEAgent extends BehavingEntity {
 
 
    private static void registerBehaviors_0(BehaviorLibrary behaviorLibrary) {
-      behaviorLibrary.registerBehavior(new __BehaviorDesc(0, __$behaviorFactory0_rfield, null, null, "event()", new String[] {"event()"}, null, (short)0), __$analysis0_rfield);
-      behaviorLibrary.registerBehavior(new __BehaviorDesc(1, __$behaviorFactory0_rfield, null, null, "Wait(int)", new String[] {"Wait(int)"}, null, (short)0), __$analysis0_rfield);
-      behaviorLibrary.registerBehavior(new __BehaviorDesc(2, __$behaviorFactory0_rfield, __$precondition0_rfield, __$preconditionSensorFactory0_rfield, "testBehavior()", new String[] {"testBehavior()"}, null, (short)0), __$analysis0_rfield);
-      behaviorLibrary.registerBehavior(new __BehaviorDesc(3, __$behaviorFactory0_rfield, null, null, "MICEAgent_RootCollectionBehavior()", new String[] {"MICEAgent_RootCollectionBehavior()"}, null, (short)0), __$analysis0_rfield);
-      behaviorLibrary.registerBehavior(new __BehaviorDesc(4, __$behaviorFactory0_rfield, null, null, "__$defaultMemoryExecuteBehavior()", new String[] {"__$defaultMemoryExecuteBehavior()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(0, __$behaviorFactory0_rfield, null, null, "MICERoot()", new String[] {"MICERoot()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(1, __$behaviorFactory0_rfield, null, null, "startEventThread()", new String[] {"startEventThread()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(2, __$behaviorFactory0_rfield, null, null, "endEventThread()", new String[] {"endEventThread()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(3, __$behaviorFactory0_rfield, null, null, "milieu()", new String[] {"milieu()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(4, __$behaviorFactory0_rfield, null, null, "inquiry()", new String[] {"inquiry()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(5, __$behaviorFactory0_rfield, null, null, "character()", new String[] {"character()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(6, __$behaviorFactory0_rfield, null, null, "event()", new String[] {"event()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(7, __$behaviorFactory0_rfield, null, null, "Wait(int)", new String[] {"Wait(int)"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(8, __$behaviorFactory0_rfield, __$precondition0_rfield, __$preconditionSensorFactory0_rfield, "testBehavior()", new String[] {"testBehavior()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(9, __$behaviorFactory0_rfield, null, null, "MICEAgent_RootCollectionBehavior()", new String[] {"MICEAgent_RootCollectionBehavior()"}, null, (short)0), __$analysis0_rfield);
+      behaviorLibrary.registerBehavior(new __BehaviorDesc(10, __$behaviorFactory0_rfield, null, null, "__$defaultMemoryExecuteBehavior()", new String[] {"__$defaultMemoryExecuteBehavior()"}, null, (short)0), __$analysis0_rfield);
    }
 
    private static void registerBehaviors_1(BehaviorLibrary behaviorLibrary) {
@@ -319,13 +325,13 @@ public class MICEAgent extends BehavingEntity {
    }
 
    public MICEAgent() {
-      individualBehaviorLibrary = new BehaviorLibrary(10);
+      individualBehaviorLibrary = new BehaviorLibrary(22);
       jointBehaviorLibrary = new BehaviorLibrary(0);
       debugLevel = 2;
       debuggerGUI = new Debugger(this);
       registerBehaviors_0(individualBehaviorLibrary);
       registerBehaviors_1(jointBehaviorLibrary);
-      ABT = (CollectionBehavior)MICEAgent_BehaviorFactories.behaviorFactory0(3, null, null, null, "MICEAgent_RootCollectionBehavior()", this, (__BehaviorDesc)((List)individualBehaviorLibrary.lookupBehavior("MICEAgent_RootCollectionBehavior()")).get(0));
+      ABT = (CollectionBehavior)MICEAgent_BehaviorFactories.behaviorFactory0(9, null, null, null, "MICEAgent_RootCollectionBehavior()", this, (__BehaviorDesc)((List)individualBehaviorLibrary.lookupBehavior("MICEAgent_RootCollectionBehavior()")).get(0));
       startWMEReflection(ABT);
       registerEntity("MICEAgent", this);
    }

@@ -15,13 +15,13 @@ import abl.sensors.*;
 public class MICEAgent_ArgumentStepExecute {
    static public Object[] argumentExecute0(int __$stepID, final Object[] __$behaviorFrame, final BehavingEntity __$thisEntity) {
       switch (__$stepID) {
-         case 3: {
+         case 11: {
             // testBehavior_1Step1
             final Object[] args = new Object[1];
             args[0] = new Long(((__ValueTypes.LongVar)__$behaviorFrame[0]).l);
             return args;
          }
-         case 4: {
+         case 12: {
             // testBehavior_1Step2
             final Object[] args = new Object[1];
             args[0] = new Integer(1000);

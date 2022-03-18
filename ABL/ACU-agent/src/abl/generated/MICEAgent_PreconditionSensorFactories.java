@@ -15,7 +15,7 @@ import abl.sensors.*;
 public class MICEAgent_PreconditionSensorFactories {
    static public SensorActivation[] preconditionSensorFactory0(int __$behaviorID) {
       switch (__$behaviorID) {
-         case 2: {
+         case 8: {
                SensorActivation[] __$activationArray = {
                   new SensorActivation(new TestSensor(), null)
                };
