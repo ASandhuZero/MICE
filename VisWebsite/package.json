@@ -1,0 +1,15 @@
+{
+  "name": "viswebsite",
+  "version": "1.0.0",
+  "description": "A visual tool for MICE research.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Arunpreet Sandhu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

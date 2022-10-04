@@ -14,18 +14,21 @@ import abl.compiler.Abl;
 public class AgentCompiler {
 	
 	/** enable debug mode? */
-	private static boolean debugMode = true;
+	private static boolean debugMode = false;
 
 	/**
 	 * Runs the ABL compiler. 
+	 * 
 	 */
 	public static void main(String[] args) {
 
 		if (debugMode) {
-			Abl.main(new String[] { "-g2", "-d", "src", "src/abl/agents/MICEAgent.abl" });
+			Abl.main(new String[] { "-g2", "-d", "src", 
+					"src/abl/agents/AuthorAgent.abl" });
 		}
 		else {
-			Abl.main(new String[] { "-d", "src", "src/abl/agents/MICEAgent.abl" });
+			Abl.main(new String[] { "-d", "src", 
+					"src/abl/agents/AuthorAgent.abl" });
 		}
 	}
 }

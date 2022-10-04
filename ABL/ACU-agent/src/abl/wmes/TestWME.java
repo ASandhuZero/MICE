@@ -14,15 +14,15 @@ import wm.WME;
 public class TestWME extends WME {
 
 	/** Location of the player */
-	private long test;
+	private String test;
 	
 	/**
 	 * Instantiates a working memory element for tracking the player character.
 	 */
-	public TestWME(long test) {
+	public TestWME(String test) {
 		this.test = test;
 	}
-	public long getTest() {
+	public String getTest() {
 		return this.test;
 	}
 }

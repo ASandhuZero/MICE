@@ -1,6 +1,6 @@
 package abl.sensors;
 
-import Server.TCPServer; 
+import Runner.StoryRunner;
 import abl.runtime.BehavingEntity;
 import abl.wmes.TestWME;
 /**
@@ -14,8 +14,12 @@ public class TestSensor extends SerialSensor {
 	 * Adds a Player WME to working memory of the agent and deletes previous player WMEs in memory.
 	 */
 	protected void sense() {
+		TestWME storyWME = new TestWME(StoryRunner.getInstance()
+				.getPlayerChoice());
+		
 		BehavingEntity.getBehavingEntity().deleteAllWMEClass("TestWME");
-		BehavingEntity.getBehavingEntity().addWME(
-				new TestWME(TCPServer.getInstance().getTestWME()));
+		
+		BehavingEntity.getBehavingEntity().addWME(storyWME);
 	}
 }
+	

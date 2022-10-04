@@ -1,9 +1,8 @@
 package abl.actions;
 
-import game.Bot;
-import game.GameEngine;
 
 import java.awt.Point;
+import Runner.StoryRunner;
 /**
  * Sets the trajectory of the chaser. 
  * 
@@ -17,5 +16,6 @@ public class TestAction extends BaseAction {
 	 */
 	public void execute(Object[] args) {
 		System.out.printf("%s. This is a test action.\n", args[0]);
+//		StoryRunner.getInstance().setStoryProgress(args[0]);
 	}
 }
