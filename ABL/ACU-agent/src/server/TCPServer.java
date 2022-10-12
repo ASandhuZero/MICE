@@ -1,4 +1,4 @@
-package Runner;
+package server;
 
 import java.io.*;
 import java.io.PrintWriter;
@@ -8,7 +8,7 @@ import java.net.Socket;
 import com.google.gson.Gson;
 import abl.wmes.*;
 
-public class Server {
+public class TCPServer {
 	Socket clientSocket;
 	// Start the server...
 	// Wait for connection...
@@ -18,15 +18,16 @@ public class Server {
 	public void startServer(StoryRunner runner, Gson gson, int port) {
 		boolean shouldContinueSending = true;
 		while (shouldContinueSending) {
-			//runner.getAgent().deleteAllWMEClass("TagWME"); //TODO PLEASE REMOVE
 			try (ServerSocket serverSocket = new ServerSocket(port)) {
 				System.out.println("Server is listening on port " + port);
 				
 				this.clientSocket = serverSocket.accept();
 				InputStream input = this.clientSocket.getInputStream();
 				System.out.println("New client connected");
-				
-				BufferedReader in = new BufferedReader(new InputStreamReader(input));
+				// TODO: Put this into a try/except block, with in being a 
+				// resource.
+				BufferedReader in = new BufferedReader(
+						new InputStreamReader(input));
 				
 				String message = "";
 				while ((message = in.readLine()) != null) {

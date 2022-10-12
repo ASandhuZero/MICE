@@ -36,12 +36,14 @@ public class Client : MonoBehaviour {
 	/// <summary> 	
 	/// Setup socket connection. 	
 	/// </summary> 	
-	private void ConnectToTcpServer () { 		
+	private void ConnectToTcpServer () {
 		try {
-			clientReceiveThread = new Thread(new ThreadStart(ListenForData)); 			
-			clientReceiveThread.IsBackground = true; 			
+			clientReceiveThread = new Thread(new ThreadStart(ListenForData));
+			clientReceiveThread.IsBackground = true;
+			Debug.Log(clientReceiveThread);
+			//TODO: Switch out to a different server set up... Or find the best way to do this lol.	
 		}
-		catch (Exception e) { 			
+		catch (Exception e) {
 			Debug.Log("On client connect exception " + e);
 		}
 	}
@@ -53,9 +55,7 @@ public class Client : MonoBehaviour {
 			socketConnection = new TcpClient("localhost", _PORT);  			
 			Byte[] bytes = new Byte[1024];
 			// TODO: this should not be while true... That seems silly.
-			// 		Instead it should be something akin to while server 
-			//		connection is active.
-			// I guess what we can do is a heartbeat or a health check  
+			// CHECK TO SEE IF HEARTBEAT WORKS.
 			while (heartbeat) { 				
 				// Get a stream object for reading 				
 				using (NetworkStream stream = socketConnection.GetStream()) { 					

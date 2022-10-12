@@ -1,30 +1,21 @@
-package Runner;
+package server;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import abl.generated.AuthorAgent;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-//TODO: Figure out some kind of datastructure for the WME tags.B
+//TODO: Figure out some kind of datastructure for the WME tags.
 public class StoryRunner {
 	
 	private static StoryRunner runner;
-	private Server server;
+	private TCPServer server;
 	private Location starting_village = new Location("starting_village");
-	private Location outskirts = new Location("outskirts");
 	private Location player_location = starting_village;
 	private AuthorAgent agent;
 	private String playerChoice = "event";
@@ -32,32 +23,32 @@ public class StoryRunner {
     public static void main(String[] args) throws IOException {
     	
     	//TODO: We need to figure out how to open up ABL and add in our own
-    	// 		callbacks.
-    	Gson gson = new Gson();
+    	// 		call backs.
+    	Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     	Map<String, StoryNode> nodes = new HashMap<String, StoryNode>();
 
     	try {
-    		nodes = gson.fromJson(new FileReader("../../story.json"), 
-    				Map.class);
+    		nodes = gson.fromJson(
+    					new FileReader("../../story.json"), Map.class);
     		
-    		System.out.println(nodes);
+    		System.out.println(gson.toJson(nodes));
     		System.out.println(nodes.get("node1"));
     	} catch (FileNotFoundException e) {
     		e.printStackTrace();
-    		System.out.println("Got caught when trying to convert json to java");
+    		System.out.println("Issue with converting json to java.");
     	}
 	
     	Scanner scan = new Scanner(System.in);
     	
     	runner = new StoryRunner();
-    	// The server handles any kind of Unity and Javascript calls.g
+    	// The server handles any kind of Unity and Javascript calls.
     	//TODO: Get Unity and Java talking to each other, so you can have 
     	// event listeners on the player choice function.
     	runner.setAgent(new AuthorAgent());
     	new Thread(() -> runner.getAgent().startBehaving()).start();
     	
-    	runner.server = new Server();
+    	runner.server = new TCPServer();
     	new Thread(() -> runner.server.startServer(runner, gson, 5000)).start();
     	
     	//TODO: Create an event listener that fires sendOutgoingMessage whenever
@@ -93,7 +84,7 @@ public class StoryRunner {
     public String getLocationName() {
     	return player_location.getLocation();
     }
-    public Server getServer() {
+    public TCPServer getServer() {
     	return this.server;
     }
 }

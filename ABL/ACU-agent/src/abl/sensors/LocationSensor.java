@@ -1,8 +1,8 @@
 package abl.sensors;
 
-import Runner.StoryRunner;
 import abl.runtime.BehavingEntity;
 import abl.wmes.LocationWME;
+import server.StoryRunner;
 /**
  * Adds a PlayerWME object to working memory when sense in invoked.
  * 

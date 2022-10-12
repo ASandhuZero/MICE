@@ -2,7 +2,8 @@ package abl.actions;
 
 
 import java.awt.Point;
-import Runner.StoryRunner;
+
+import server.StoryRunner;
 /**
  * Sets the trajectory of the chaser. 
  * 
