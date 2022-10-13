@@ -98,11 +98,6 @@ class Location {
 		return location;
 	}
 }
-
-class StoryNodes {
-	public Map<String, StoryNode> nodes = new HashMap<String, StoryNode>();
-
-}
 class StoryNode {
 	public String text;
 	public String[] next;

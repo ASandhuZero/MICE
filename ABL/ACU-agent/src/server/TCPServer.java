@@ -1,20 +1,62 @@
 package server;
 
 import java.io.*;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import java.util.Map; //TODO: Remove this when we understand GSON.
+import java.util.HashMap;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import abl.wmes.*;
 
+//TODO: Make this the main file. It doesn't make sense that StoryRunner takes
+//		care of this.
 public class TCPServer {
 	Socket clientSocket;
 	// Start the server...
 	// Wait for connection...
 	// Once connection has been made, send a heart beat to the client...
 	//		1. The heart beat's purpose is to let the client know that the 
-	//		server is still operational. 
+	//		server is still operational.
+	// Then start up ABL.
+	
+	public static void main(String[] args) throws IOException {
+		// TODO: This should probably be its own function, honestly.
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		StoryNodes nodes;
+		nodes = JsonGenerator("../../story.json");
+//    	Map<String, StoryNode> nodes = new HashMap<String, StoryNode>();
+//    	try (FileReader fr = new FileReader("../../story.json")){
+//    		nodes = gson.fromJson(fr, Map.class);
+//    		
+//       		System.out.println(gson.toJson(nodes));
+//    		System.out.println(nodes.get("node1"));
+//    	} catch (FileNotFoundException e) {
+//    		e.printStackTrace();
+//    		System.out.println("Issue with converting json to java.");
+//    	}
+
+	}
+	
+	public static StoryNodes JsonGenerator(String file) throws IOException {
+		StoryNodes storyNodes = new StoryNodes();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+    	try (FileReader fr = new FileReader(file)){
+    		storyNodes = gson.fromJson(fr, StoryNodes.class);
+    		
+       		System.out.println(gson.toJson(storyNodes));
+//    		System.out.println(nodes.get("node1"));
+    	} catch (FileNotFoundException e) {
+    		e.printStackTrace();
+    		System.out.println("Issue with converting json to java.");
+    	}
+		
+		return storyNodes;
+	}
+	
+	
 	public void startServer(StoryRunner runner, Gson gson, int port) {
 		boolean shouldContinueSending = true;
 		while (shouldContinueSending) {
@@ -63,4 +105,9 @@ public class TCPServer {
     public Socket getClientSocket() {
     	return this.clientSocket;
     }
+}
+
+class StoryNodes {
+	public Map<String, StoryNode> nodes = new HashMap<String, StoryNode>();
+
 }
